@@ -14,7 +14,7 @@ export function drawOnCanvas(
       //styling
       ctx.font = "12px Courier New";
       ctx.fillStyle = name === "person" ? "#FF0F0F" : "#00B612";
-      ctx.globalAlpha = 0.5;
+      ctx.globalAlpha = 0.3;
 
       mirrored
         ? ctx.roundRect(ctx.canvas.width - x, y, -width, height, 8)

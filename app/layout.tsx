@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter, Raleway } from 'next/font/google'
+import { Inter, Raleway, Roboto_Mono } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from '@/components/ui/toaster'
 
 const inter = Inter({ subsets: ['latin'] })
 const raleway = Raleway({ subsets: ['latin'] })
+const robM = Roboto_Mono({ subsets: ['latin'] })
 
 
 export const metadata: Metadata = {
@@ -20,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={raleway.className}>
+      <body className={robM.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

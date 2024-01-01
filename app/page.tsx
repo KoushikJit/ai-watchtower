@@ -139,7 +139,9 @@ const Home = (props: Props) => {
 
   // 1. init model
   async function initModel() {
-    const loadedModel = await cocossd.load();
+    const loadedModel = await cocossd.load({
+      base: 'mobilenet_v2'
+    });
     setModel(loadedModel);
     // TODO: set and unset loading of the page when model loads | check for model state variable change in useeffect hook
   }
@@ -322,14 +324,15 @@ const Home = (props: Props) => {
           <li>
             <strong>Enable/Disable Auto Record 🚫</strong>
             <p>Option to enable/disable automatic video recording whenever required.</p>
+            <Button
+              variant={autorecordEnabled ? 'destructive' : 'outline'} size={'icon'}
+              onClick={toggleAutoRecord}
+              className='h-6 w-6 my-2'
+            >
+              {autorecordEnabled ? <Rings color='white' height={30} /> : <PersonStanding size={14} />}
+            </Button>
           </li>
-          <Button
-            variant={autorecordEnabled ? 'destructive' : 'outline'} size={'icon'}
-            onClick={toggleAutoRecord}
-            className='h-6 w-6 my-2'
-          >
-            {autorecordEnabled ? <Rings color='white' height={30} /> : <PersonStanding size={14} />}
-          </Button>
+
           <li>
             <strong>Volume Slider 🔊</strong>
             <p>Adjust the volume level of the notifications.</p>
